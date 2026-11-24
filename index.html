@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>九宫奇趣屋 · ARCADE 9</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle ambient starfield background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main Hub View -->
+  <div id="hub-view" class="hub-view">
+    <header class="hub-header">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+        <div class="brand-text">
+          <h1>九宫奇趣屋 <span class="brand-en">ARCADE 9</span></h1>
+          <p class="brand-sub">九个维度，九款原创微游戏 · 点击任意格子即刻开玩</p>
+        </div>
+      </div>
+
+      <div class="hub-controls">
+        <div class="stat-pill" title="已点亮的星级奖杯">
+          <span class="stat-icon">★</span>
+          <span id="total-stars">0</span><span class="stat-dim">/9</span>
+        </div>
+        <div class="stat-pill" title="九宫格累计最高分">
+          <span class="stat-icon">⚡</span>
+          <span id="total-score">0</span>
+        </div>
+        <button id="random-game-btn" class="ctrl-btn primary-btn" title="随机进入一个小游戏">
+          <span class="btn-icon">🎲</span>
+          <span>随机一局</span>
+        </button>
+        <button id="sound-toggle-btn" class="ctrl-btn icon-btn" title="开关音效" aria-label="开关音效">
+          🔊
+        </button>
+      </div>
+    </header>
+
+    <main class="grid-wrapper">
+      <div id="game-grid" class="game-grid" role="grid" aria-label="九宫格小游戏选择区">
+        <!-- 9 cards populated by js/main.js -->
+      </div>
+    </main>
+
+    <footer class="hub-footer">
+      <span>纯原生 HTML5 Canvas + Web Audio 合成音效 · 支持鼠标 / 触控 / 键盘</span>
+      <span class="footer-sep">·</span>
+      <span>达成每格目标分即可点亮 ★ 勋章</span>
+    </footer>
+  </div>
+
+  <!-- Game Stage Overlay View -->
+  <div id="stage-view" class="stage-view hidden" aria-hidden="true">
+    <div class="stage-shell">
+      <div class="stage-topbar">
+        <div class="stage-left">
+          <button id="back-btn" class="ctrl-btn" title="返回九宫格 (ESC)">
+            <span>←</span>
+            <span>九宫格</span>
+          </button>
+          <div class="stage-title-wrap">
+            <span id="stage-num" class="stage-num">01</span>
+            <div>
+              <h2 id="stage-title">游戏名称</h2>
+              <span id="stage-tag" class="stage-tag">类型</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage-hud">
+          <div class="hud-box">
+            <span class="hud-label" id="hud-score-label">得分</span>
+            <span class="hud-value" id="hud-score">0</span>
+          </div>
+          <div class="hud-box">
+            <span class="hud-label" id="hud-extra-label">连击</span>
+            <span class="hud-value" id="hud-extra">-</span>
+          </div>
+          <div class="hud-box best-box">
+            <span class="hud-label">最高</span>
+            <span class="hud-value" id="hud-best">0</span>
+          </div>
+        </div>
+
+        <div class="stage-actions">
+          <button id="restart-btn" class="ctrl-btn" title="重新开始 (R)">↻ 重来</button>
+          <button id="stage-sound-btn" class="ctrl-btn icon-btn" title="开关音效" aria-label="开关音效">🔊</button>
+        </div>
+      </div>
+
+      <div class="canvas-frame" id="canvas-frame">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Start / Game Over Overlay inside canvas -->
+        <div id="stage-overlay" class="stage-overlay">
+          <div class="overlay-card">
+            <div id="overlay-badge" class="overlay-badge">READY</div>
+            <h3 id="overlay-title">准备开始</h3>
+            <p id="overlay-desc">玩法说明</p>
+            <div id="overlay-stats" class="overlay-stats hidden"></div>
+            <div class="overlay-btns">
+              <button id="overlay-start-btn" class="ctrl-btn primary-btn lg-btn">开始游戏</button>
+              <button id="overlay-back-btn" class="ctrl-btn lg-btn">返回九宫格</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-footer">
+        <div id="stage-controls-hint" class="controls-hint">操作提示</div>
+        <div id="stage-goal-hint" class="goal-hint">★ 勋章目标: 0</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
