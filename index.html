@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>vibeproject · 纯机器做工，无古法手工</title>
+  <style>
+    :root {
+      --bg: #080b14;
+      --card: rgba(17, 22, 40, 0.82);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #f3f6ff;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.18), transparent 42%),
+        radial-gradient(circle at 82% 18%, rgba(251, 191, 36, 0.14), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+    main {
+      width: 100%;
+      max-width: 920px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .badge {
+      display: inline-block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 26px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 15%, var(--glow), transparent 58%);
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 0.55);
+    }
+    .card-arcade { --accent: #38bdf8; --glow: rgba(56, 189, 248, 0.2); }
+    .card-moyu { --accent: #fbbf24; --glow: rgba(251, 191, 36, 0.2); }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .pill {
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .card h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin: 12px 0 8px;
+    }
+    .card p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+    }
+    footer a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    footer a:hover { color: #f3f6ff; }
+    @media (max-width: 680px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="badge">arthur618 / vibeproject</div>
+      <h1>vibeproject 游乐合集</h1>
+      <p>纯机器做工，无古法手工 · 点击下方任意项目直接在线开玩</p>
+    </header>
+
+    <section class="cards">
+      <a class="card card-arcade" href="./arcade9/">
+        <div>
+          <div class="top">
+            <span class="pill">01 · ARCADE9</span>
+            <span class="pill">9 款原创微游戏</span>
+          </div>
+          <h2>Arcade9 · 九宫奇趣屋</h2>
+          <p>暗黑霓虹街机风九宫格大厅，内置 9 款 Canvas 实时动态微缩预览与 Web Audio 合成音效小游戏：引力反转、光剑切星、星际弹弓、虫洞贪吃蛇、棱镜激光、霓虹弹珠砖、律动节拍、云端叠叠乐、核心守卫。</p>
+        </div>
+        <span class="cta">立即进入 Arcade9 →</span>
+      </a>
+
+      <a class="card card-moyu" href="./moyu/">
+        <div>
+          <div class="top">
+            <span class="pill">02 · MOYU</span>
+            <span class="pill">18 款摸鱼小游戏</span>
+          </div>
+          <h2>moyu · 摸鱼游乐场</h2>
+          <p>手绘纸感风格的零依赖摸鱼游乐场：包含 9 款轻松快节奏小游戏 + 9 款无倒计时益智谜题（数独、关灯、汉诺塔、推箱子、华容道、黑白拼图等），支持本地纪录与移动端触控。</p>
+        </div>
+        <span class="cta">立即进入摸鱼游乐场 →</span>
+      </a>
+    </section>
+
+    <footer>
+      <a href="https://github.com/arthur618/vibeproject" target="_blank" rel="noopener noreferrer">查看 GitHub 源码仓库 ↗</a>
+    </footer>
+  </main>
+</body>
+</html>
