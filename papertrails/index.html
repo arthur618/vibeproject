@@ -22,6 +22,14 @@
     <meta name="twitter:image" content="https://xikhar.github.io/papertrails/social-card.jpg" />
     <meta name="twitter:image:alt" content="A traveller exploring Papertrails, a colorful pop-up paper world." />
     <link rel="icon" href="data:," />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+        }
+      }
+    </script>
     <style>
       html, body { cursor: none; margin: 0; height: 100%; overflow: hidden; background: #1c130d; }
       canvas#atlas { cursor: none; position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
@@ -38,6 +46,6 @@
   <body>
     <canvas id="atlas" tabindex="0"></canvas>
     <div id="hint">WASD / click to walk &nbsp;·&nbsp; Shift run &nbsp;·&nbsp; Ctrl slow &nbsp;·&nbsp; Tab map &nbsp;·&nbsp; N night &nbsp;·&nbsp; M music &nbsp;·&nbsp; V view</div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

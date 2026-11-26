@@ -208,7 +208,7 @@ export function createAtlasMap(ctx) {
 
   // ---- icons (optional sheet; procedural otherwise) ---------------------------------------------------------------
   function loadIcons() {
-    const base = (import.meta.env && import.meta.env.BASE_URL) || '/';
+    const base = (import.meta.env && import.meta.env.BASE_URL) || './';
     const url = base + A.iconsUrl;
     fetch(url + '.json').then((r) => (r.ok ? r.json() : null)).then((json) => {
       if (!json) return;
